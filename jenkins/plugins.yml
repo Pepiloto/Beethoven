@@ -1,0 +1,28 @@
+plugins:
+  - artifactId: cloudbees-folder
+    source:
+      version: latest
+  - artifactId: configuration-as-code
+    source:
+      version: latest
+  - artifactId: github
+    source:
+      version: latest
+  - artifactId: job-dsl
+    source:
+      version: latest
+  - artifactId: script-security
+    source:
+      version: latest
+  - artifactId: role-strategy
+    source:
+      version: latest
+  - artifactId: ws-cleanup
+    source:
+      version: latest
+  - artifactId: docker-build-publish
+    source:
+      version: latest
+  - artifactId: conditional-buildstep
+    source:
+      version: latest
