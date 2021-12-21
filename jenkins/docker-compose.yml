@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    jenkins:
+        container_name: beethoven
+        image: beethoven
+        build: ..
+        environment:
+            - CASC_JENKINS_CONFIG=./jenkins/jenkins.yml
+            - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+            - USER_ADMIN_PASSWORD=${USER_ADMIN_PASSWORD}
+        volumes:
+            - ./jenkins.yml:/var/jenkins.yml
+        ports:
+            - 8080:8080

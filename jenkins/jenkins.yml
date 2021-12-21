@@ -1,0 +1,21 @@
+jenkins:
+    systemMessage: "Welcome everyone to this basic Jenkins Instance."
+    authorizationStrategy:
+        roleBased:
+            roles:
+                global:
+                    - name: "admin"
+                      description: "The Big Chief of the Instance."
+                      permissions:
+                          - "Overall/Administer"
+                      assignments:
+                          - "admin"
+    remotingSecurity:
+        enabled: true
+    securityRealm:
+        local:
+            allowsSignup: false
+            users:
+                - id: "admin"
+                  password: ${USER_ADMIN_PASSWORD}
+                  name: "Admin"
