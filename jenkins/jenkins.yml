@@ -1,21 +1,41 @@
 jenkins:
-    systemMessage: "Welcome everyone to this basic Jenkins Instance."
-    authorizationStrategy:
-        roleBased:
-            roles:
-                global:
-                    - name: "admin"
-                      description: "The Big Chief of the Instance."
-                      permissions:
-                          - "Overall/Administer"
-                      assignments:
-                          - "admin"
-    remotingSecurity:
-        enabled: true
-    securityRealm:
-        local:
-            allowsSignup: false
-            users:
-                - id: "admin"
-                  password: ${USER_ADMIN_PASSWORD}
-                  name: "Admin"
+  systemMessage: |
+    Welcome everyone to this basic Jenkins Instance.
+
+    This Instance is configured only using Configuration as Code.
+    The master node cannot run jobs so there is another node that does it to ensure better security.
+    The maintener of this instance is Pepiloto.
+  numExecutors: 0
+  authorizationStrategy:
+    roleBased:
+      roles:
+        global:
+          - name: "admin"
+            description: "The Big Chief of the Instance."
+            permissions:
+              - "Overall/Administer"
+            assignments:
+              - "admin"
+  remotingSecurity:
+    enabled: true
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: ${USER_ADMIN_PASSWORD}
+          name: "Admin"
+
+  nodes:
+    - permanent:
+        labelString: "Test"
+        mode: NORMAL
+        name: "test node"
+        remoteFS: "/var/jenkins"
+        launcher:
+          jnlp:
+            workDirSettings:
+              disabled: true
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
+              workDirPath: "/tmp"

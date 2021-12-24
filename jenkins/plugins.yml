@@ -26,3 +26,6 @@ plugins:
   - artifactId: conditional-buildstep
     source:
       version: latest
+  - artifactId: ssh-slaves
+    source:
+      version: latest
