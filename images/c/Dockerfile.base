@@ -1,0 +1,11 @@
+FROM gcc:11
+
+SHELL [ "/bin/sh", "-c" ]
+
+WORKDIR /app
+
+ONBUILD COPY . .
+
+ONBUILD RUN make fclean && make tests-run && make fclean
+
+ONBUILD RUN make && make clean && find -type f -name "src/*.c" -delete
