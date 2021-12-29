@@ -28,10 +28,10 @@ jenkins:
 
   nodes:
     - permanent:
-        labelString: "Test"
+        labelString: "Build"
         mode: NORMAL
-        name: "test node"
-        remoteFS: "/var/jenkins"
+        name: "Build images node"
+        remoteFS: "/home/node1"
         launcher:
           jnlp:
             workDirSettings:
@@ -39,3 +39,6 @@ jenkins:
               failIfWorkDirIsMissing: false
               internalDir: "remoting"
               workDirPath: "/tmp"
+
+jobs:
+  - file: ./jenkins/job_dsl.groovy

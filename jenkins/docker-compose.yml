@@ -11,5 +11,15 @@ services:
             - USER_ADMIN_PASSWORD=${USER_ADMIN_PASSWORD}
         volumes:
             - ./jenkins.yml:/var/jenkins.yml
+            - /var/run/docker.sock:/var/run/docker.sock
         ports:
             - 8080:8080
+
+    registry:
+        container_name: registry
+        restart: always
+        image: registry:2
+        ports:
+            - 5000:5000
+        volumes:
+            - /path/data:/var/lib/registry
