@@ -29,3 +29,6 @@ plugins:
   - artifactId: ssh
     source:
       version: latest
+  - artifactId: git-chooser-alternative
+    source:
+      version: latest
