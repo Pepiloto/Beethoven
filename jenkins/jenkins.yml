@@ -40,5 +40,9 @@ jenkins:
               internalDir: "remoting"
               workDirPath: "/tmp"
 
+security:
+  globaljobdslsecurityconfiguration:
+    useScriptSecurity: false
+
 jobs:
   - file: ./jenkins/job_dsl.groovy
