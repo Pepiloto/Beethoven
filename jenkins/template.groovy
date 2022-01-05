@@ -3,15 +3,10 @@ def languages = [ "c" ]
 freeStyleJob("Projects/${DISPLAY_NAME}") {
     scm {
         git {
-            branches('main', 'master')
             extensions {
                 cleanBeforeCheckout()
-                choosingStrategy {
-                    alternative()
-                }
                 cloneOptions {
                     depth(1)
-                    shallow(true)
                 }
             }
             remote {
